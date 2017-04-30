@@ -16,7 +16,7 @@ public class LoginController {
 
 	private static final Logger logger = Logger.getLogger(LoginController.class);
 
-	
+	@Autowired
 	private LoginSvc svc;
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
