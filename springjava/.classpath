@@ -2,5 +2,22 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/akunduru/.m2/repository/org/springframework/spring-context/4.1.7.RELEASE/spring-context-4.1.7.RELEASE.jar" sourcepath="C:/Users/akunduru/.m2/repository/org/springframework/spring-context/4.1.7.RELEASE/spring-context-4.1.7.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="spring-context-4.1.7.RELEASE.jar"/>
+			<attribute name="maven.groupId" value="org.springframework"/>
+			<attribute name="maven.artifactId" value="spring-context"/>
+			<attribute name="maven.version" value="4.1.7.RELEASE"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/spring-beans-4.3.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/spring-core-4.3.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/dep/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/spring-expression-4.3.8.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/spring-test-4.3.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Software/jars/spring-framework-4.3.8.RELEASE/spring-aop-4.3.8.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
