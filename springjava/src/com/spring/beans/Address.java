@@ -1,5 +1,6 @@
 package com.spring.beans;
 
+/* This is Address class */
 public class Address {
 
 	public Address() {
