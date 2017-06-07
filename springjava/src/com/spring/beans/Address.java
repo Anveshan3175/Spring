@@ -3,7 +3,7 @@ package com.spring.beans;
 public class Address {
 
 	public Address() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	private String line1;
