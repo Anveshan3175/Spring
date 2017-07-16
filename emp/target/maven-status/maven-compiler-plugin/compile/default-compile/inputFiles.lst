@@ -1,8 +1,8 @@
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/controller/SalaryController.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/forms/LoginForm.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/configuration/AppInitializer.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/configuration/SpringRootConfig.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/configuration/SpringWebConfiguration.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/dao/LoginDAO.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/svc/LoginSvc.java
-/home/anveshan/stsworkspace/emp/src/main/java/com/emp/controller/LoginController.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/forms/LoginForm.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/configuration/AppInitializer.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/controller/LoginController.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/configuration/SpringRootConfig.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/configuration/SpringWebConfiguration.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/controller/SalaryController.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/svc/LoginSvc.java
+/home/anveshan/git/Spring/emp/src/main/java/com/emp/dao/LoginDAO.java

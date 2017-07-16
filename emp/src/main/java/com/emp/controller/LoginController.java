@@ -11,6 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.emp.forms.LoginForm;
 import com.emp.svc.LoginSvc;
 
+/*
+ * http://www.codejava.net/frameworks/spring/configuring-spring-mvc-jdbctemplate-with-jndi-data-source-in-tomcat
+ * http://stackoverflow.com/questions/9183321/how-to-use-jndi-datasource-provided-by-tomcat-in-spring
+ * https://tomcat.apache.org/tomcat-7.0-doc/jndi-resources-howto.html#context.xml_configuration
+ */
 @Controller
 public class LoginController {
 
@@ -45,7 +50,7 @@ public class LoginController {
 			throw new RuntimeException("svc is null. Issue in Injection of the SVC bean");
 		}
 		
-		if (svc.validateLogin()) {
+		if (svc.validateLogin(form.getLoginName(),form.getPassword())) {
 			model.setViewName("welcome");
 		} else {
 			model.setViewName("login");
