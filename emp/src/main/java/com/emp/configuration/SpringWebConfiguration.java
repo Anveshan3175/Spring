@@ -1,5 +1,8 @@
 package com.emp.configuration;
 
+/*
+ *  Controller beans go into Dispatcher Servlet WebApplicationContext
+ */
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
