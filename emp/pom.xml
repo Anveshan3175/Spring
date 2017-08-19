@@ -8,7 +8,7 @@
 	<name>emp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-<!-- Install this maven archiver - http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.2/N/LATEST/ -->
+<!-- Install this maven archiver - http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.2/N/LATEST/ --> 
 	<properties>
 		<java.version>1.8</java.version>
 		<junit.version>4.11</junit.version>
