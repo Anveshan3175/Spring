@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="welcome" method="get">
+	<form action="welcome" method="post">
 		<table>
 			<tr>
 				<td>User Name</td>
