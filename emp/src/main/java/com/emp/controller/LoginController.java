@@ -30,7 +30,7 @@ public class LoginController {
 		return model;
 	}
 
-	@RequestMapping(value = { "/welcome" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/welcome" }, method = RequestMethod.POST)
 	public ModelAndView validateLogin(@ModelAttribute("loginForm") LoginForm form) {
 
 		logger.debug("Entering : validateLogin ");
