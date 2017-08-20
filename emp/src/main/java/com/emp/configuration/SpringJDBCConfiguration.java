@@ -1,5 +1,8 @@
 package com.emp.configuration;
 
+/*
+ * http://www.topjavatutorial.com/frameworks/spring/spring-jdbc/spring-jdbc-using-annotation-based-configuration/
+ */
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,8 +11,8 @@ public class LoginSvc {
 	@Autowired 
 	private LoginDAO dao;
 	
-	public boolean validateLogin(){
+	public boolean validateLogin(String name,String password){
 		System.out.println("In the svc method");
-		return dao.validateLogin();
+		return dao.validateLogin(name,password);
 	}
 }

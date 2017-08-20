@@ -45,7 +45,7 @@ public class LoginController {
 			throw new RuntimeException("svc is null. Issue in Injection of the SVC bean");
 		}
 		
-		if (svc.validateLogin()) {
+		if (svc.validateLogin(form.getLoginName(),form.getPassword())) {
 			model.setViewName("welcome");
 		} else {
 			model.setViewName("login");
