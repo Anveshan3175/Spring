@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,7 +58,27 @@ public class TestController {
      return countryList.getListOfCountries();
     }
    
+    @RequestMapping(value = "/addCountry", method = RequestMethod.POST)
+    public ResponseEntity<Country> addCountry(@RequestBody Country country)
+    {
+    	System.out.println("--------------------in coming country is ------"+country);
+    	return new ResponseEntity<Country>(country,HttpStatus.CREATED);
+    }
     
+   
+    @RequestMapping(value = "/addSelectedCountry", method = RequestMethod.POST)
+    public Country addSelectedCountry(@RequestBody Country country)
+    {
+    	System.out.println("--------------------in coming addSelectedCountry is ------"+country);
+    	return country;
+    }
+    
+    @RequestMapping(value = "/addCountries", method = RequestMethod.POST)
+    public ResponseEntity<List<Country>> addCountries(@RequestBody List<Country> countries)
+    {
+    	System.out.println("-------addCountries-------------in coming Countries is ---------------"+countries);
+    	return new ResponseEntity<List<Country>>(countries,HttpStatus.CREATED);
+    }
     
    /// Utiliy method to create country list.
     public CountryList createCountryList()
