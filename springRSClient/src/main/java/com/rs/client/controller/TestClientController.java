@@ -47,4 +47,40 @@ public class TestClientController {
 		return page;
 
 	}
+	
+	@RequestMapping(value = "/addCountry" ,method = RequestMethod.GET)
+	public ModelAndView addCountry(){
+		System.out.println("-------------------------addCountry in TestClientController---------------");
+
+		 Country country = svc.addCountry(new Country(5, "Syria"));
+		System.out.println("-------------------------country from  test controller : addCountry ---------------"+country);
+		ModelAndView page = new ModelAndView();
+		page.setViewName("countries");
+		return page;
+
+	}
+	
+	@RequestMapping(value = "/addCountries" ,method = RequestMethod.GET)
+	public ModelAndView addCountries(){
+		System.out.println("-------------------------addCountries in TestClientController---------------");
+		
+		svc.addCountries();
+		ModelAndView page = new ModelAndView();
+		page.setViewName("countries");
+		return page;
+
+	}
+	
+	@RequestMapping(value = "/addSelectedCountry")
+	public ModelAndView addSelectedCountry(){
+		System.out.println("-------------------------addSelectedCountry---------------");
+		Country country = new Country(5, "Syria");
+		country = null;
+		country = svc.addSelectedCountry(country);
+		System.out.println("-------------------------country from test controller : addSelectedCountry---------------"+country);
+		ModelAndView page = new ModelAndView();
+		page.setViewName("countries");
+		return page;
+
+	}
 }

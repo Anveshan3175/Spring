@@ -11,4 +11,7 @@ public interface TestService {
 
 	Country getCountry(int id);
 	List<Country> getCountries();
+	Country addCountry(Country coutry);
+	Country addSelectedCountry(Country coutry);
+	void addCountries();
 }
