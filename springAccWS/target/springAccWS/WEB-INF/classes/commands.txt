@@ -1,0 +1,3 @@
+
+OPen cmd at : C:\Workspace\GenralWorkSpace\springAccWS\src\main\webapp\schemas
+wsimport -s . -p com.blog.samples.webservices.personservice PersonSvc.wsdl
