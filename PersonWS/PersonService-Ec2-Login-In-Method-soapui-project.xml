@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fa53004a-aeef-4344-aed5-7d5a8784d2d7" activeEnvironment="Default" name="PersonService_Ec2_Login_In_Method" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="6a5cd502-6320-4df8-a011-d52db21c7c48" wsaVersion="NONE" name="PersonServiceSoap11" type="wsdl" bindingName="{http://com/person/webservices/personSvc}PersonServiceSoap11" soapVersion="1_1" anonymous="optional" definition="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints/PersonService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints/PersonService.wsdl"><con:part><con:url>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints/PersonService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://com/person/webservices/personSvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://com/person/webservices/personSvc" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/person/webservices/personSvc">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/person/webservices/personSvc" xmlns="http://com/person/webservices/personSvc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addPersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="p" type="Person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addPersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="addPersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="p" type="Person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="addPersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deletePersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="login" type="Login"/>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deletePersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="deletePersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="login" type="Login"/>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="getPersonReturn" type="Person"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllPersonsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="login" type="Login"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllPersonsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="getAllPersonsReturn" type="Person"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element name="age" type="xs:int"/>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="name" nillable="true" type="xs:string"/>
+          <xs:element name="country" nillable="true" type="xs:string"/>
+          <xs:element name="occupation" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Login">
+        <xs:sequence>
+          <xs:element name="name" nillable="true" type="xs:string"/>
+          <xs:element name="password" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="header">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="userid" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="password" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addPersonResponse">
+    <wsdl:part element="tns:addPersonResponse" name="addPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="updatePersonRequest">
+    <wsdl:part element="tns:updatePersonRequest" name="updatePersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="updatePersonResponse">
+    <wsdl:part element="tns:updatePersonResponse" name="updatePersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllPersonsResponse">
+    <wsdl:part element="tns:getAllPersonsResponse" name="getAllPersonsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonResponse">
+    <wsdl:part element="tns:deletePersonResponse" name="deletePersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addPersonRequest">
+    <wsdl:part element="tns:addPersonRequest" name="addPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getPersonResponse">
+    <wsdl:part element="tns:getPersonResponse" name="getPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPersonRequest">
+    <wsdl:part element="tns:getPersonRequest" name="getPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="personHeader">
+    <wsdl:part element="tns:header" name="personHeader"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonRequest">
+    <wsdl:part element="tns:deletePersonRequest" name="deletePersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getAllPersonsRequest">
+    <wsdl:part element="tns:getAllPersonsRequest" name="getAllPersonsRequest"/>
+  </wsdl:message>
+  <wsdl:portType name="PersonService">
+    <wsdl:operation name="addPerson">
+      <wsdl:input message="tns:addPersonRequest" name="addPersonRequest"/>
+      <wsdl:output message="tns:addPersonResponse" name="addPersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <wsdl:input message="tns:updatePersonRequest" name="updatePersonRequest"/>
+      <wsdl:output message="tns:updatePersonResponse" name="updatePersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPersons">
+      <wsdl:input message="tns:getAllPersonsRequest" name="getAllPersonsRequest"/>
+      <wsdl:output message="tns:getAllPersonsResponse" name="getAllPersonsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <wsdl:input message="tns:deletePersonRequest" name="deletePersonRequest"/>
+      <wsdl:output message="tns:deletePersonResponse" name="deletePersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <wsdl:input message="tns:getPersonRequest" name="getPersonRequest"/>
+      <wsdl:output message="tns:getPersonResponse" name="getPersonResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonServiceSoap11" type="tns:PersonService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addPersonRequest">
+        <soap:header message="tns:personHeader" part="personHeader" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addPersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updatePersonRequest">
+        <soap:header message="tns:personHeader" part="personHeader" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPersons">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAllPersonsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllPersonsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deletePersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deletePersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonServices">
+    <wsdl:port binding="tns:PersonServiceSoap11" name="PersonServiceSoap11">
+      <soap:address location="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint></con:endpoints><con:operation id="ad8083d1-133e-458a-b2fc-508981aebe5c" isOneWay="false" action="" name="addPerson" bindingOperationName="addPerson" type="Request-Response" outputName="addPersonResponse" inputName="addPersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3be99b7f-240a-49c5-8725-5e5a40a387c8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/person/webservices/personSvc">\r
+   <soapenv:Header>\r
+      <per:header>\r
+         <per:userid>test</per:userid>\r
+         <per:password>welcome</per:password>\r
+      </per:header>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <per:addPersonRequest>\r
+         <per:p>\r
+            <per:age>45</per:age>\r
+            <per:id>?</per:id>\r
+            <per:name>Luis</per:name>\r
+            <per:country>Brazil</per:country>\r
+            <per:occupation>Footballer</per:occupation>\r
+         </per:p>\r
+      </per:addPersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/person/webservices/personSvc/PersonService/addPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c02e5322-9cae-4f03-be19-874f2d02d308" isOneWay="false" action="" name="deletePerson" bindingOperationName="deletePerson" type="Request-Response" outputName="deletePersonResponse" inputName="deletePersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c91896aa-e340-4077-83a1-3cb5ce0e2532" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/person/webservices/personSvc">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:deletePersonRequest>\r
+         <per:login>\r
+            <per:name>test</per:name>\r
+            <per:password>welcome</per:password>\r
+         </per:login>\r
+         <per:id>1</per:id>\r
+      </per:deletePersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/person/webservices/personSvc/PersonService/deletePersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1a4331a1-0068-459f-82fc-0c7e4ce18010" isOneWay="false" action="" name="getAllPersons" bindingOperationName="getAllPersons" type="Request-Response" outputName="getAllPersonsResponse" inputName="getAllPersonsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="49587c3e-5c49-4204-a383-8e28ca93e915" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/person/webservices/personSvc">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:getAllPersonsRequest>\r
+         <per:login>\r
+            <per:name>?</per:name>\r
+            <per:password>?</per:password>\r
+         </per:login>\r
+      </per:getAllPersonsRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/person/webservices/personSvc/PersonService/getAllPersonsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8e019270-7590-4c51-9a82-604281e51bcc" isOneWay="false" action="" name="getPerson" bindingOperationName="getPerson" type="Request-Response" outputName="getPersonResponse" inputName="getPersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="891140bc-7421-492a-8905-bc7c9988b554" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/person/webservices/personSvc">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:getPersonRequest>\r
+         <per:login>\r
+            <per:name>test</per:name>\r
+            <per:password>welcome</per:password>\r
+         </per:login>\r
+         <per:id>4</per:id>\r
+      </per:getPersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/person/webservices/personSvc/PersonService/getPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3a501b7c-ea1b-475e-8c58-efbe6608fbc1" isOneWay="false" action="" name="updatePerson" bindingOperationName="updatePerson" type="Request-Response" outputName="updatePersonResponse" inputName="updatePersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="19c44785-7b0d-455e-81d3-5c075bf51ddb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/PersonWS/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/person/webservices/personSvc">\r
+   <soapenv:Header>\r
+      <per:header>\r
+         <per:userid>test</per:userid>\r
+         <per:password>welcome</per:password>\r
+      </per:header>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <per:updatePersonRequest>\r
+         <per:p>\r
+            <per:age>45</per:age>\r
+            <per:id>3</per:id>\r
+            <per:name>Tarun</per:name>\r
+            <per:country>India</per:country>\r
+            <per:occupation>Writer</per:occupation>\r
+         </per:p>\r
+      </per:updatePersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/person/webservices/personSvc/PersonService/updatePersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
