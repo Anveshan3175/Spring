@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:sws="http://www.springframework.org/schema/web-services"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+							http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+							http://www.springframework.org/schema/web-services
+							http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+
+	<context:component-scan
+		base-package="com.anvesh.spring.wssecurity.dao,com.anvesh.spring.wssecurity.svc,com.anvesh.spring.wssecurity.endpoints" />
+	<sws:annotation-driven />
+
+
+	<!-- wss4j -->
+	<bean id="callbackHandler"
+		class="org.springframework.ws.soap.security.wss4j.callback.SimplePasswordValidationCallbackHandler">
+		<property name="users">
+			<props>
+				<prop key="Bert">Ernie</prop>
+				<prop key="Mickey">Mouse</prop>
+				<prop key="clinetUser">pass</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<sws:interceptors>
+
+		<!-- <bean name="endpointMapping" class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping"> 
+			<property name="interceptors"> <list> <ref bean="wsSecurityInterceptor" /> 
+			</list> </property> </bean> -->
+
+		<bean id="wsSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor"> 
+			<property name="validationActions" value="UsernameToken" /> <property name="validationCallbackHandler" 
+			ref="callbackHandler" /> </bean> 
+
+
+<!-- 		<bean
+			class="org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor">
+			<property name="policyConfiguration" value="/WEB-INF/securityPolicy.xml" />
+			<property name="callbackHandlers">
+				<list>
+					<ref bean="callbackHandler" />
+				</list>
+			</property>
+		</bean> -->
+	</sws:interceptors>
+
+<!-- 	<bean id="callbackHandler"
+		class="org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler">
+		<property name="users">
+			<props>
+				<prop key="admin">secret</prop>
+				<prop key="clinetUser">pass</prop>
+				<prop key="Bert">Ernie</prop>
+			</props>
+		</property>
+	</bean> -->
+
+	<!-- Our test service bean -->
+
+	<bean id="PersonSecurityService"
+		class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+		<!-- uses a SAX implementation to load this resource -->
+		<property name="wsdl" value="schemas/PersonWS.wsdl">
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="perdb" />
+		<property name="password" value="perdb" />
+	</bean>
+
+	<bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.anvesh.spring.wssecurity.model.Person</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect 
+					</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect
+				</prop>
+
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="personDAO" class="com.anvesh.spring.wssecurity.dao.PersonDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="personService" class="com.anvesh.spring.wssecurity.svc.PersonServiceImpl">
+		<property name="personDAO" ref="personDAO"></property>
+	</bean>
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+</beans>
