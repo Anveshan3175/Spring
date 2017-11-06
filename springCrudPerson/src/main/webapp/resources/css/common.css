@@ -1,0 +1,21 @@
+* {
+box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+body {
+background-color: #3498DB;
+}
+
+input {
+background-color: #ECF0F1;
+border: 1px solid transparent;
+border-radius: 1px;
+font-size: 12px;
+font-weight: 100;
+padding: 5px 0;
+width: 200px;
+transition: border .5s;
+}

@@ -2,6 +2,7 @@ package com.anvesh.person.dao;
 
 import org.springframework.stereotype.Repository;
 
+import com.anvesh.person.model.Login;
 import com.anvesh.person.model.Person;
 
 import java.util.List;
@@ -75,6 +76,17 @@ public class PersonDAOImpl implements PersonDAO {
 			    .setProjection(Projections.max("id"));
 			Integer maxId = (Integer)criteria.uniqueResult();
 		logger.info("Maximum id is " + maxId);		
-		return maxId+1;
+		return (maxId == null ? 1 : maxId+1);
+	}
+	
+	@Override
+	public boolean validateLogin(String name,String password) {
+		boolean isValid = false;
+		Session session = this.sessionFactory.getCurrentSession();
+		Login login = (Login) session.get(Login.class, name);
+		if(login != null && password.equals(login.getPassword()))
+			isValid = true;
+		logger.info("Login validation done successfully for name =" +name);
+		return isValid;
 	}
 }

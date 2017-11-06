@@ -12,4 +12,5 @@ public interface PersonDAO {
 	public Person getPersonById(int id);
 	public void removePerson(int id);
 	public int getMaxId();
+	public boolean validateLogin(String name,String password);
 }
