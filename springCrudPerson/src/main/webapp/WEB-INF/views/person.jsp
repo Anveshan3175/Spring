@@ -11,11 +11,18 @@
 		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
 		.tg .tg-4eph{background-color:#f9f9f9}
 	</style>
+	<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/common.css" />
 </head>
 <body>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+
 <h1>
-	Add a Person
+	Add a Person 
 </h1>
+<div align="center">
+	<a href="<c:url value='${logoutUrl}' />" >Logout</a>
+</div>
 
 <c:url var="addAction" value="/person/add" ></c:url>
 

@@ -15,4 +15,6 @@ public interface PersonService {
 	public Person getPersonById(int id);
 
 	public void removePerson(int id);
+	
+	public boolean validateLogin(String name,String password);
 }

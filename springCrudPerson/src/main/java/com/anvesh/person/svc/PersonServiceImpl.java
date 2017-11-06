@@ -47,5 +47,11 @@ public class PersonServiceImpl implements PersonService {
 	public void removePerson(int id) {
 		this.personDAO.removePerson(id);
 	}
+	
+	@Override
+	@Transactional
+	public boolean validateLogin(String name,String password){
+		return this.personDAO.validateLogin(name, password);
+	}
 
 }
