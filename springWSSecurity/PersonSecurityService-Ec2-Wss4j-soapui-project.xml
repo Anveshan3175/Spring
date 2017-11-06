@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="72d370cd-cdab-4506-b3f4-c8f28664c9b2" activeEnvironment="Default" name="PersonSecurityService_Ec2_Wss4j" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="08a772d0-84c3-4da6-b619-330832a2594d" wsaVersion="NONE" name="PersonServiceSoap11" type="wsdl" bindingName="{http://com/anvesh/spring/wssecurity/pns}PersonServiceSoap11" soapVersion="1_1" anonymous="optional" definition="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints/PersonSecurityService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints/PersonSecurityService.wsdl"><con:part><con:url>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints/PersonSecurityService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://com/anvesh/spring/wssecurity/pns" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://com/anvesh/spring/wssecurity/pns" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/anvesh/spring/wssecurity/pns">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/anvesh/spring/wssecurity/pns" xmlns="http://com/anvesh/spring/wssecurity/pns" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addPersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="p" type="Person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addPersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="addPersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="p" type="Person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="addPersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deletePersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deletePersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="deletePersonReturn" type="xs:boolean"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPersonRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPersonResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="getPersonReturn" type="Person"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllPersonsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <!--<xs:element name="login" type="Login"/>-->
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllPersonsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="getAllPersonsReturn" type="Person"/>
+            <xs:element name="message" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element name="age" type="xs:int"/>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="name" nillable="true" type="xs:string"/>
+          <xs:element name="country" nillable="true" type="xs:string"/>
+          <xs:element name="occupation" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addPersonResponse">
+    <wsdl:part element="tns:addPersonResponse" name="addPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="updatePersonRequest">
+    <wsdl:part element="tns:updatePersonRequest" name="updatePersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="updatePersonResponse">
+    <wsdl:part element="tns:updatePersonResponse" name="updatePersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAllPersonsResponse">
+    <wsdl:part element="tns:getAllPersonsResponse" name="getAllPersonsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonResponse">
+    <wsdl:part element="tns:deletePersonResponse" name="deletePersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addPersonRequest">
+    <wsdl:part element="tns:addPersonRequest" name="addPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getPersonResponse">
+    <wsdl:part element="tns:getPersonResponse" name="getPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPersonRequest">
+    <wsdl:part element="tns:getPersonRequest" name="getPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonRequest">
+    <wsdl:part element="tns:deletePersonRequest" name="deletePersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getAllPersonsRequest">
+    <wsdl:part element="tns:getAllPersonsRequest" name="getAllPersonsRequest"/>
+  </wsdl:message>
+  <wsdl:portType name="PersonService">
+    <wsdl:operation name="addPerson">
+      <wsdl:input message="tns:addPersonRequest" name="addPersonRequest"/>
+      <wsdl:output message="tns:addPersonResponse" name="addPersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <wsdl:input message="tns:updatePersonRequest" name="updatePersonRequest"/>
+      <wsdl:output message="tns:updatePersonResponse" name="updatePersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPersons">
+      <wsdl:input message="tns:getAllPersonsRequest" name="getAllPersonsRequest"/>
+      <wsdl:output message="tns:getAllPersonsResponse" name="getAllPersonsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <wsdl:input message="tns:deletePersonRequest" name="deletePersonRequest"/>
+      <wsdl:output message="tns:deletePersonResponse" name="deletePersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <wsdl:input message="tns:getPersonRequest" name="getPersonRequest"/>
+      <wsdl:output message="tns:getPersonResponse" name="getPersonResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonServiceSoap11" type="tns:PersonService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addPersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addPersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updatePersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPersons">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAllPersonsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllPersonsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deletePersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deletePersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonServices">
+    <wsdl:port binding="tns:PersonServiceSoap11" name="PersonServiceSoap11">
+      <soap:address location="http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint></con:endpoints><con:operation id="3a9c8a61-3c35-4cd2-9ed4-b3df9f15bd2a" isOneWay="false" action="" name="addPerson" bindingOperationName="addPerson" type="Request-Response" outputName="addPersonResponse" inputName="addPersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0de26781-ce6b-4445-9072-c71412d906d4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:pns="http://com/anvesh/spring/wssecurity/pns" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   <!-- Right cike. Add WSS usernametoken passwrd text -->
+   <soapenv:Header>\r
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-1B5F424B354D7AD4B815079209143011">\r
+            <wsse:Username>Mickey</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Mouse</wsse:Password>\r
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">7MaWsakJskx2Kzvk7DO9tw==</wsse:Nonce>\r
+            <wsu:Created>2017-10-13T18:55:14.300Z</wsu:Created>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <pns:addPersonRequest>\r
+         <pns:p>\r
+            <pns:age>20</pns:age>\r
+            <pns:id>?</pns:id>\r
+            <pns:name>Ravi</pns:name>\r
+            <pns:country>India</pns:country>\r
+            <pns:occupation>farmer</pns:occupation>\r
+         </pns:p>\r
+      </pns:addPersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Mickey</con:username><con:password>Mouse</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/addPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="686a0fb7-ad38-4f63-8ee2-5b060a09f4d2" isOneWay="false" action="" name="deletePerson" bindingOperationName="deletePerson" type="Request-Response" outputName="deletePersonResponse" inputName="deletePersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="740badb5-757a-42fa-83d1-7aee77ffeb9f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:pns="http://com/anvesh/spring/wssecurity/pns" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   <soapenv:Header>\r
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-6A29DF21FE52B307E315069240667408">\r
+            <wsse:Username>Bert</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Ernie</wsse:Password>\r
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">n6jikol3fJvY2A6Z9xUZcw==</wsse:Nonce>\r
+            <wsu:Created>2017-10-02T06:01:06.740Z</wsu:Created>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <pns:deletePersonRequest>\r
+         <pns:id>15</pns:id>\r
+      </pns:deletePersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Bert</con:username><con:password>Ernie</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/deletePersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f49cd999-067a-4af3-8dca-b52dcc1004e6" isOneWay="false" action="" name="getAllPersons" bindingOperationName="getAllPersons" type="Request-Response" outputName="getAllPersonsResponse" inputName="getAllPersonsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="77f5cef6-3474-4471-96b7-d8eb2ed13c8c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pns="http://com/anvesh/spring/wssecurity/pns">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <pns:getAllPersonsRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/getAllPersonsRequest"/></con:call></con:operation><con:operation id="f559344d-740c-459c-a9b1-7d5d1d46eed8" isOneWay="false" action="" name="getPerson" bindingOperationName="getPerson" type="Request-Response" outputName="getPersonResponse" inputName="getPersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b7b90717-90e1-4093-b935-9630253a467d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:pns="http://com/anvesh/spring/wssecurity/pns" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   <soapenv:Header>\r
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-6A29DF21FE52B307E3150694702393411">\r
+            <wsse:Username>Mickey</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Mouse</wsse:Password>\r
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">vENYbuLauitX+zjk2fiOVg==</wsse:Nonce>\r
+            <wsu:Created>2017-10-02T12:23:43.934Z</wsu:Created>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <pns:getPersonRequest>\r
+         <pns:id>13</pns:id>\r
+      </pns:getPersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Mickey</con:username><con:password>Mouse</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/getPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c018d773-2b44-4a55-8bb8-503ee3291def" isOneWay="false" action="" name="updatePerson" bindingOperationName="updatePerson" type="Request-Response" outputName="updatePersonResponse" inputName="updatePersonRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5e995883-c5d4-4edb-86e6-01e6a6354b91" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:pns="http://com/anvesh/spring/wssecurity/pns" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   <soapenv:Header>\r
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-6A29DF21FE52B307E315069241852109">\r
+            <wsse:Username>Bert</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Ernie</wsse:Password>\r
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">XGLPN4ICYsz76OS2UopyaA==</wsse:Nonce>\r
+            <wsu:Created>2017-10-02T06:03:05.210Z</wsu:Created>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <pns:updatePersonRequest>\r
+         <pns:p>\r
+            <pns:age>32</pns:age>\r
+            <pns:id>13</pns:id>\r
+            <pns:name>Natesh</pns:name>\r
+            <pns:country>IND</pns:country>\r
+            <pns:occupation>Model</pns:occupation>\r
+         </pns:p>\r
+      </pns:updatePersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Bert</con:username><con:password>Ernie</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/updatePersonRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="0f977dda-b7dc-492b-88c7-31d453fb2a40" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-13-126-193-205.ap-south-1.compute.amazonaws.com:8080/springWSSecurity/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:pns="http://com/anvesh/spring/wssecurity/pns" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   <soapenv:Header>\r
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-6A29DF21FE52B307E3150692480258010">\r
+            <wsse:Username>Mickey</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Mouse</wsse:Password>\r
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">uCrh/5xyW2v72BA9x7Q4KA==</wsse:Nonce>\r
+            <wsu:Created>2017-10-02T06:13:22.580Z</wsu:Created>\r
+         </wsse:UsernameToken>\r
+      </wsse:Security>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <pns:updatePersonRequest>\r
+         <pns:p>\r
+            <pns:age>?</pns:age>\r
+            <pns:id>?</pns:id>\r
+            <pns:name>?</pns:name>\r
+            <pns:country>?</pns:country>\r
+            <pns:occupation>?</pns:occupation>\r
+         </pns:p>\r
+      </pns:updatePersonRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Mickey</con:username><con:password>Mouse</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/anvesh/spring/wssecurity/pns/PersonService/updatePersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
