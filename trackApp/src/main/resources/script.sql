@@ -16,8 +16,9 @@ create table tb_user_login (userid number,username varchar(80) unique, password 
 insert into tb_user_login values (100,'test','tester',null);
 insert into tb_user_login values (101,'admin','admin',null);
 
-CREATE TABLE Person ( id number NOT NULL , name varchar(80) NOT NULL , country varchar(50), PRIMARY KEY (id));
-
+CREATE TABLE tb_customer_personal_dtls ( custid number , firstname varchar(255) NOT NULL ,lastname varchar(255), phone number,email varchar(255),city varchar(255), PRIMARY KEY (custid));
+insert into tb_customer_personal_dtls values (1000,'testFName','testLName', 999999999,'abc@gmail.com','testCity');
+insert into tb_customer_personal_dtls values (1001,'sampleFName','sampeLName', 999999999,'ced@gmail.com','sampleCity');
 
 
 --Mysql
