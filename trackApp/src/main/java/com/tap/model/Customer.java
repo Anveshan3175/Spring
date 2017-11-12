@@ -15,7 +15,7 @@ public class Customer {
 
 	@Id
 	@Column(name = "custid")
-	private int id;
+	private Integer id;
 
 	@Column(name = "firstname",nullable=false )
 	private String fName;
@@ -30,15 +30,9 @@ public class Customer {
 	private String email;
 	
 	@Column(name = "phone")
-	private int phone;
+	private Integer phone;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getfName() {
 		return fName;
@@ -72,11 +66,21 @@ public class Customer {
 		this.email = email;
 	}
 
-	public int getPhone() {
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
 

@@ -15,7 +15,7 @@ public class CustomerSvcImpl implements CustomerSvc {
 
 	@Autowired
 	private CustomerDAO customerDao;
-	
+
 	public CustomerSvcImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,5 +26,22 @@ public class CustomerSvcImpl implements CustomerSvc {
 		return customerDao.getCustomers();
 	}
 
-	
+	@Override
+	public int addCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return customerDao.addCustomer(customer);
+	}
+
+	@Override
+	public Customer getCustomerById(int id) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerById(id);
+	}
+
+	@Override
+	public boolean isValidLogin(String name, String password) {
+		// TODO Auto-generated method stub
+		return customerDao.isValidLogin(name, password);
+	}
+
 }

@@ -1,0 +1,2 @@
+Open cmd at : C:\Workspace\GitHub\Spring\trackApp\src\main\resources
+wsimport -s . -p com.tap.ws.stubs CustomerWS.wsdl
