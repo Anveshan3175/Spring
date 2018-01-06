@@ -3,7 +3,6 @@ package com.person.webservices.personservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -18,7 +17,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="login" type="{http://com/person/webservices/personSvc}Login"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -30,39 +28,12 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "login",
     "id"
 })
 @XmlRootElement(name = "deletePersonRequest")
 public class DeletePersonRequest {
 
-    @XmlElement(required = true)
-    protected Login login;
     protected int id;
-
-    /**
-     * Gets the value of the login property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Login }
-     *     
-     */
-    public Login getLogin() {
-        return login;
-    }
-
-    /**
-     * Sets the value of the login property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Login }
-     *     
-     */
-    public void setLogin(Login value) {
-        this.login = value;
-    }
 
     /**
      * Gets the value of the id property.

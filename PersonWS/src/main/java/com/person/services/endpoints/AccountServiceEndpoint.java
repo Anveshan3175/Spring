@@ -165,8 +165,8 @@ public class AccountServiceEndpoint {
 		
 		DeletePersonResponse response = new DeletePersonResponse();
 		
-		Login login = request.getLogin();
-		if (personService.isValidLogin(login.getName(), login.getPassword())){
+		//Login login = request.getLogin();
+		//if (personService.isValidLogin(login.getName(), login.getPassword())){
 			System.out.println("---------------------isValidLogin----true");
 			com.person.model.Person per = personService.getPersonById(request.getId());
 			if(per == null){
@@ -176,11 +176,11 @@ public class AccountServiceEndpoint {
 			
 			personService.removePerson(request.getId());
 			response.setMessage("Person is deleted successfully");
-		}
-		else{
+		//}
+		/*else{
 			System.out.println("---------------------isValidLogin----false");
 			response.setMessage("Credentials are invalid");
-		}
+		}*/
 		return response;
 	}
 	

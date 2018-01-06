@@ -6,3 +6,8 @@ DB details:
 jdbc:mysql://localhost:3306/userDB
 root/anvesh
 Table: Person
+
+
+
+OPen cmd at : C:\Workspace\GenralWorkSpace\springAccWS\src\main\webapp\schemas
+wsimport -s . -p com.person.webservices.personservice PersonWS.wsdl
