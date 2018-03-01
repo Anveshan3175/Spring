@@ -34,3 +34,17 @@ insert into tb_skills values (5,'ADF','ADF Lanaguage');
 insert into tb_skills values (6,'BI','BI Lanaguage');
 
 ------------------DML---------------------
+
+
+
+
+--Mysql
+create database cts;
+create table tb_user_login (userid int,username varchar(80) unique, password varchar(80) not null, salt varchar(20), PRIMARY KEY (userid));
+create table tb_candidate_dtls (id int, name varchar(80) not null unique,email varchar(80) unique, mobile int,experience int,city varchar(80), company varchar(50),noticeperiod int, PRIMARY KEY (id));
+create table tb_skills (id int,name varchar(80) not null unique ,description varchar(500),PRIMARY KEY (id));
+
+
+
+
+
