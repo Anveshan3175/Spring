@@ -9,13 +9,13 @@ create table tb_user_login (
 	PRIMARY KEY (userid));
 	
 create table tb_questions_category(
-	category_id int,
+	category_id int AUTO_INCREMENT,
 	category_name varchar(40) unique not null,
 	category_desc varchar(100),
 	PRIMARY KEY (category_id));
 	
 create table tb_questions (
-	question_id int,
+	question_id int AUTO_INCREMENT,
 	question_category_id int not null, 
 	question_desc varchar(400) not null, 
 	question_ans varchar(1000),
@@ -23,7 +23,7 @@ create table tb_questions (
 	FOREIGN KEY (question_category_id) REFERENCES tb_questions_category(category_id));
 	
 create table tb_candidate_details(
-	candidate_id int,
+	candidate_id int AUTO_INCREMENT,
 	candidate_name varchar(40) not null,
 	candidate_primary_phone int unique,
 	candidate_secondary_phone int,
@@ -31,7 +31,7 @@ create table tb_candidate_details(
 	PRIMARY KEY (candidate_id));
 	
 create table tb_interviews(
-	interview_id int,
+	interview_id int AUTO_INCREMENT,
 	interview_mode varchar(40) not null,
 	interview_requestor varchar(40) not null,
 	interview_desc varchar(100),
