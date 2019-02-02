@@ -11,7 +11,7 @@ create table tb_user_login (
 create table tb_questions_category(
 	category_id int,
 	category_name varchar(40) unique not null,
-	categor_desc varchar(100),
+	category_desc varchar(100),
 	PRIMARY KEY (category_id));
 	
 create table tb_questions (
