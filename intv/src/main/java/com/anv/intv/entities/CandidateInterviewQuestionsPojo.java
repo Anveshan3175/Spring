@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_candidate_interview_questions")
-public class CandidateInterviewQuestions {
+public class CandidateInterviewQuestionsPojo {
 
 	@Column(name = "candidate_id")
 	private int candidateId;
