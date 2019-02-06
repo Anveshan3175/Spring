@@ -4,12 +4,17 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_candidate_interview")
 public class CandidateInterviewPojo {
 
+	@Id
+	@Column(name = "id")
+	private int id;
+	
 	@Column(name = "candidate_id")
 	private int candidateId;
 	
@@ -54,5 +59,11 @@ public class CandidateInterviewPojo {
 		this.result = result;
 	}
 	
-	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

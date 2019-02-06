@@ -38,18 +38,22 @@ create table tb_interviews(
 	PRIMARY KEY (interview_id));
 	
 create table tb_candidate_interview(
+	id int AUTO_INCREMENT,
 	candidate_id int,
 	interview_id int,
 	interview_time date,
 	interview_result varchar(40),
+	PRIMARY KEY (id),
 	FOREIGN KEY (candidate_id) REFERENCES tb_candidate_details(candidate_id),
 	FOREIGN KEY (interview_id) REFERENCES tb_interviews(interview_id));
 	
 create table tb_candidate_interview_questions(
+	id int AUTO_INCREMENT,
 	question_id int,
 	candidate_id int,
 	interview_id int,
 	candidate_ans varchar(1000),
+	PRIMARY KEY (id),
 	FOREIGN KEY (question_id) REFERENCES tb_questions(question_id),
 	FOREIGN KEY (candidate_id) REFERENCES tb_candidate_details(candidate_id),
 	FOREIGN KEY (interview_id) REFERENCES tb_interviews(interview_id));
