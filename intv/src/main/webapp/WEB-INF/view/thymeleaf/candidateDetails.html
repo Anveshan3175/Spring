@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		 <!-- Required meta tags -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" type="text/css" media="all"  
+		th:href="@{/resources/css/bootstrap/bootstrap.min.css}"/>
+		
+		<title>Candidate Details</title>
+	</head>
+		
+    <body>
+    	<div class="container">
+    		<form action="#" th:action="@{/spr/validatecandidate}" th:object="${candidateDetailsForm}" method="post">		
+    			<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" class="form-control" th:field="*{name}">
+					<h6 th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> Name Error </h6>
+				</div>
+    	
+    			<div class="form-group">
+					<label for="name">Primary Phone:</label>
+					<input type="text" class="form-control" th:field="*{primaryPhone}">
+					<h6 th:if="${#fields.hasErrors('primaryPhone')}" th:errors="*{primaryPhone}"> Phone Error </h6>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Primary Phone:</label>
+					<input type="text" class="form-control" th:field="*{secondaryPhone}">
+					<h6 th:if="${#fields.hasErrors('secondaryPhone')}" th:errors="*{secondaryPhone}"> Phone Error </h6>
+				</div>
+    	
+    			<div class="form-group">
+					<button type="submit" class="btn btn-primary" >Submit</button>
+				</div>
+    		</form>
+    	</div>
+        
+        <script th:src="@{/resources/js/bootstrap/jquery-3.3.1.slim.min.js}"></script>
+		<script src="@{/resources/js/bootstrap/popper.min.js}"></script>
+		<script src="@{/resources/js/bootstrap/bootstrap.min.js}"></script>
+    </body>
+</html>
