@@ -1,2 +1,3 @@
 URL:
 http://localhost:8080/intv/spr/login
+http://localhost:8080/intv/spr/addcandidate
