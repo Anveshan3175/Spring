@@ -1,17 +1,13 @@
 package com.anv.intv.controller;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.anv.intv.form.CandidateDetailsForm;
 import com.anv.intv.svc.IUserDetailsSVC;
 
 @Controller
@@ -42,22 +38,4 @@ public class LoginController {
 		return "takeInterview";
 	}
 
-	@GetMapping("/javaQuestions")
-	public String getJavaQuestions() {
-		logger.debug("-------------- javaQuestions invoked -----------------------");
-		return "javaQuestions";
-	}
-
-	@GetMapping("/addcandidate")
-	public String showForm(CandidateDetailsForm candidateDetailsForm) {
-		return "candidateDetails";
-	}
-
-	@PostMapping("/validatecandidate")
-	public String checkPersonInfo(@Valid CandidateDetailsForm candidateDetailsForm, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			return "candidateDetails";
-		}
-		return "home"; 
-	}
 }
