@@ -70,4 +70,6 @@ drop table tb_questions_category;
 -- DML
 insert into tb_user_login values (1000,'tester','admin');
 
+
+insert into tb_questions_category values (1000,'java','This category belongs to all java technologies');
 ---------

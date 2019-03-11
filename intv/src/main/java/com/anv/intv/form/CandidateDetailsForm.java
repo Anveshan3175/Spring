@@ -1,5 +1,7 @@
 package com.anv.intv.form;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,10 +11,26 @@ public class CandidateDetailsForm {
     @Size(min=2, max=30)
     private String name;
 	
-	@NotNull
-	private Integer primaryPhone;
+	@NotNull(message = "Primary phone is mandatory")
+	@Size(min=10,max=10,message = "Enter 10 digit phone number")
+	private String primaryPhone;
 	
-	private Integer secondaryPhone;
+	//@Size(min=10,max=10,message = "Enter 10 digit phone number")
+	//@Nullable
+	private String secondaryPhone;
+	
+	//@NotEmpty(message = "Email is mandatory")
+	@NotEmpty(message = "{email.notempty}")
+	@Email(message = "Enter valid email")
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getName() {
 		return name;
@@ -22,19 +40,19 @@ public class CandidateDetailsForm {
 		this.name = name;
 	}
 
-	public Integer getPrimaryPhone() {
+	public String getPrimaryPhone() {
 		return primaryPhone;
 	}
 
-	public void setPrimaryPhone(Integer primaryPhone) {
+	public void setPrimaryPhone(String primaryPhone) {
 		this.primaryPhone = primaryPhone;
 	}
 
-	public Integer getSecondaryPhone() {
+	public String getSecondaryPhone() {
 		return secondaryPhone;
 	}
 
-	public void setSecondaryPhone(Integer secondaryPhone) {
+	public void setSecondaryPhone(String secondaryPhone) {
 		this.secondaryPhone = secondaryPhone;
 	}
     
