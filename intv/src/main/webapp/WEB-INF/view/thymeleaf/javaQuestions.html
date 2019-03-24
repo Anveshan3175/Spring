@@ -100,7 +100,7 @@
 <body>
 	<div class="container">
 		<form action="#" th:action="@{/spr/addQuestions}"
-			th:object="${questionsForm}" method="post">
+			th:object="${questionsFormWrapper}" method="post">
 			<div class="header-name">
 				<div>
 					<h3>Select Java Questions</h3>
@@ -111,8 +111,8 @@
 			</div>
 			<br/>
 
-			<div class="form-group" th:each="question : ${questions}">
-				<input class="form-check-input" type="checkbox"
+			<div class="form-group" th:each="question : ${questionsFormWrapper.questionsForm}">
+				<input class="form-check-input" type="checkbox" th:checked="${question.selected}"
 					th:id="${question.checkBoxId}" name="remember"> 
 				<label for="quest1" th:text="${question.desc}"></label> 
 				<a href="#" th:id="${question.linkId}" onClick='showQuestionLink(this.id)'>Show Answer</a>
@@ -123,21 +123,21 @@
 				</textarea>
 			</div>
 			<br/> 
-			<a href="#" id="createQuestion" onClick='createJavaQuestion()'>Create New Question</a>
+			<!-- <a href="#" id="createQuestion" onClick='createJavaQuestion()'>Create New Question</a>
 			<a href="#" id="discardQuestion" style='display: none' onClick='discardJavaQuestion()'>Discard Question</a>
 			<div class="form-group" id="newJavaQuestionDiv">
 				<textarea class="form-control" rows="1" id="newJavaQuestion"
-					th:field="*{desc}" placeholder="Enter Question"
+					th:field="*{newQuestion.desc}" placeholder="Enter Question"
 					style='resiztext-align: left; resize: vertical; display: none'></textarea>
-				<h6 th:if="${#fields.hasErrors('desc')}" th:errors="*{desc}"> Question Error </h6>
+				<h6 th:if="${#fields.hasErrors('newQuestion.desc')}" th:errors="*{newQuestion.desc}"> Question Error </h6>
 				<br></br>
 				<textarea class="form-control" rows="2" id="newJavaAnswer"
-					th:field="*{ans}" placeholder="Enter Answer" style='resize: vertical; display: none'></textarea>
+					th:field="*{newQuestion.ans}" placeholder="Enter Answer" style='resize: vertical; display: none'></textarea>
 				<br></br>
 				<button type="submit" class="btn btn-secondary" name="action"
 					id="newJavaAnswerSubmit" style='resize: vertical; display: none'
 					onClick='submitJavaQuestion()' value='addQuestionToDB'>Submit Question</button>
-			</div>
+			</div> -->
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary" name="action"
