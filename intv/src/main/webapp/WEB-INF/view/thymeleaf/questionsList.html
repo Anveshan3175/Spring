@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{/resources/css/bootstrap/bootstrap.min.css}" />
+
+<title>Java Questions</title>
+
+<style>
+.header-name div {
+	display: inline-block;
+	height: auto;
+}
+</style>
+
+<script>
+	function addSelectedQuestions() {
+		var tab = document.getElementById("javaQuestionsForm");
+		var elems = tab.getElementsByTagName("input");
+		for (var i = 0; i < elems.length; i++) {
+			if (elems[i].type == "checkbox") {
+				if (elems[i].checked == true)
+					alert(elems[i].id + " This is cheked");
+			}
+		}
+	}
+</script>
+</head>
+
+
+<body>
+	<div class="container">
+		<form action="#" th:action="@{/spr/addQuestions}"
+			th:object="${qform}" method="post">
+			<div class="header-name">
+				<div>
+					<h3>Select Java Questions</h3>
+				</div>
+				<div style="float: right;">
+					<a href="takeInterview">Back</a> <br/>
+				</div>
+			</div>
+			<br/>
+
+			<div class="form-group" th:each="question,stat : ${allQuestions}">
+				<input type="checkbox" class="form-check-input" th:field="*{questions[__${stat.index}__].id}"
+				th:value="${question.id}" > 
+				<h6 th:if="${#fields.hasErrors('questions[__${stat.index}__]')}" th:errors="*{questions[__${stat.index}__]}"> Phone Error </h6>
+				<label for="quest1" th:text="${question.desc}"  ></label>
+				<!-- <input th:field="*{questions[__${stat.index}__].desc}" th:value="${question.desc}"> --> 
+			</div>
+			<br/> 
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary" name="action"
+					 value='assignQuestionsToUser'>Add Selected Questions</button>
+			</div>
+		</form>
+	</div>
+
+	<script th:src="@{/resources/js/bootstrap/jquery-3.3.1.slim.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/resources/js/bootstrap/bootstrap.min.js}"></script>
+</body>
+</html>
