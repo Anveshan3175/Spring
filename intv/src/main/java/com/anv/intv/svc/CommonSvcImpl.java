@@ -61,6 +61,7 @@ public class CommonSvcImpl implements ICommonSvc {
 	}
 	
 	@Override
+	@Transactional
 	public boolean addNewInterview(InterviewForm form) {
 		// TODO Auto-generated method stub
 		InterviewPojo pojo = new InterviewPojo();

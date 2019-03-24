@@ -32,7 +32,9 @@ create table tb_candidate_details(
 	
 create table tb_interviews(
 	interview_id int AUTO_INCREMENT,
+	interview_title varchar(40) not null,
 	interview_mode varchar(40) not null,
+	interview_date date,
 	interview_requestor varchar(40) not null,
 	interview_desc varchar(100),
 	PRIMARY KEY (interview_id));

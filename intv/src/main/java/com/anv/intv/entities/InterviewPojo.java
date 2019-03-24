@@ -15,6 +15,9 @@ public class InterviewPojo {
 	@Column(name = "interview_id")
 	private int id;
 	
+	@Column(name = "interview_title")
+	private String title;
+	
 	@Column(name = "interview_mode")
 	private String mode;
 	
@@ -65,6 +68,14 @@ public class InterviewPojo {
 
 	public void setDay(Date day) {
 		this.day = day;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 }

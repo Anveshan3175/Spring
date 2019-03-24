@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.anv.intv.form.CandidateDetailsForm;
+import com.anv.intv.form.InterviewForm;
 import com.anv.intv.form.Question;
 import com.anv.intv.form.QuestionsListForm;
 import com.anv.intv.svc.ICommonSvc;
@@ -103,6 +104,10 @@ quest -> quest.getCheckBoxId() != null).collect(Collectors.toList());
 	}
 	
 	
+	@GetMapping("/addNewInterview")
+	public String createNewInterview(InterviewForm form) {
+		return "newInterview";
+	}
 	
 	///   Test
 	

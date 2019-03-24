@@ -1,6 +1,7 @@
 package com.anv.intv.util;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.anv.intv.entities.CandidatePojo;
@@ -54,6 +55,11 @@ public class SVCUtil {
 
 	public static void populateInterviewPojoPojo(InterviewForm form, InterviewPojo pojo) {
 		// TODO Auto-generated method stub
+		//pojo.setDay(Date.parse(form.getDate()));
+		pojo.setTitle(form.getTitle());
+		pojo.setDesc(form.getDesc());
+		pojo.setMode(form.getMode());
+		pojo.setRequestor(form.getRequestor());
 		
 	}
 }
