@@ -11,10 +11,10 @@ public class QuestionsPojo {
 
 	@Id
 	@Column(name = "question_id")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "question_category_id")
-	private int categoryId;
+	private Integer categoryId;
 	
 	@Column(name = "question_desc")
 	private String description;
@@ -22,19 +22,19 @@ public class QuestionsPojo {
 	@Column(name = "question_ans")
 	private String answer;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 

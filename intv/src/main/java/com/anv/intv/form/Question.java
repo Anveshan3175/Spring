@@ -3,10 +3,10 @@ package com.anv.intv.form;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class QuestionsForm {
+public class Question{
 
-	private int id;
-	private int categoryId;
+	private String id;
+	private String categoryId;
 	private String category;
 	@NotNull
 	@Size(min=10,message = "Describe question with more than 10 chars")
@@ -21,8 +21,19 @@ public class QuestionsForm {
 	private String linkId;
 	private String textAreaId;
 	
-		
-	public QuestionsForm createQuestion(int id, int categoryId, String category, @NotNull String desc, @NotNull String ans) {
+	private boolean selected;
+	
+	public Question() {}
+	
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
+	public Question createQuestion(String id, String categoryId, String category, @NotNull String desc, @NotNull String ans) {
 		this.id = id;
 		this.categoryId = categoryId;
 		this.category = category;
@@ -35,19 +46,19 @@ public class QuestionsForm {
 		return this;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 		this.checkBoxId = "quest"+id+"Check";
 		this.linkId = "quest"+id+"link";
 		this.textAreaId = "quest"+id;
 	}
-	public int getCategoryId() {
+	public String getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getCategory() {
@@ -70,7 +81,7 @@ public class QuestionsForm {
 	}
 
 	public String getCheckBoxId() {
-		 return "quest"+id+"Check";
+		 return id != null ? ("quest"+id+"Check") : id;
 	}
 
 	public void setCheckBoxId(String checkBoxId) {
@@ -78,7 +89,7 @@ public class QuestionsForm {
 	}
 
 	public String getLinkId() {
-		return "quest"+id+"link";
+		return id != null ? ("quest"+id+"link") : id;
 	}
 
 	public void setLinkId(String linkId) {
@@ -86,11 +97,18 @@ public class QuestionsForm {
 	}
 
 	public String getTextAreaId() {
-		return "quest"+id;
+		return id != null ? ("quest"+id) : id;
 	}
 
 	public void setTextAreaId(String textAreaId) {
 		this.textAreaId = textAreaId;
+	}
+
+	@Override
+	public String toString() {
+		return "Question [id=" + id + ", categoryId=" + categoryId + ", category=" + category + ", desc=" + desc
+				+ ", ans=" + ans + ", checkBoxId=" + checkBoxId + ", linkId=" + linkId + ", textAreaId=" + textAreaId
+				+ ", selected=" + selected + "]";
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.anv.intv.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,6 +18,9 @@ public class InterviewPojo {
 	@Column(name = "interview_mode")
 	private String mode;
 	
+	@Column(name = "interview_date")
+	private Date day;
+
 	@Column(name = "interview_requestor")
 	private String requestor;
 	
@@ -53,6 +58,13 @@ public class InterviewPojo {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	
+		
+	public Date getDay() {
+		return day;
+	}
+
+	public void setDay(Date day) {
+		this.day = day;
+	}
 	
 }
